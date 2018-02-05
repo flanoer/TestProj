@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>TestProj</display-name>
+  <context-param>
+  	<param-name>ORACLE_DRIVER</param-name>
+  	<param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>ORACLE_URL</param-name>
+  	<param-value>jdbc:oracle:thin://localhost:1521:orcl</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>PAGESIZE</param-name>
+  	<param-value>2</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>BLOCKPAGE</param-name>
+  	<param-value>3</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>TOMCAT_JNDI_ROOT</param-name>
+  	<param-value>java:comp/env</param-value>
+  </context-param>
+  
+  <session-config>
+      <session-timeout>30</session-timeout>
+  </session-config>
+  <jsp-config>
+		<taglib>
+			<taglib-uri>	
+				<!-- JSP의 taglib지시어의 uri속성에 넣어 줄 값-->
+				/WEB-INF/tlds/mytaglib.tld
+			</taglib-uri>
+			<taglib-location>
+			 	<!-- tld파일의 위치-->
+				/WEB-INF/tlds/mytaglib.tld
+			</taglib-location>	
+		</taglib>
+	</jsp-config>
+  	<servlet>
+		<!-- 서블릿 명, 임의로 지정 -->
+		<servlet-name>BBSList</servlet-name>
+		<!-- 서블릿 클래스의 패키지를 포함한 경로 -->
+		<servlet-class>controller.bbs.ListController</servlet-class>
+		<!-- 서블릿 초기화 파라미터, 리스트 컨트롤러만 사용 가능-->
+		<init-param>
+			<param-name>PAGESIZE</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>BLOCKPAGE</param-name>
+			<param-value>3</param-value>
+		</init-param>
+	</servlet>
+	<!-- URL 패턴(요청URL)을 서블릿에 매핑 -->
+	<servlet-mapping>
+		<!-- servlet태그의 servlet-name태그와 일치시키자 -->
+		<servlet-name>BBSList</servlet-name>
+		<!-- 사용자 요청 url패턴 : 반드시 / 로 시작하는 패턴 -->
+		<url-pattern>/BBS/List.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BBSWrite</servlet-name>
+		<servlet-class>controller.bbs.WriteController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BBSWrite</servlet-name>
+		<url-pattern>/BBS/Write.do</url-pattern>
+	</servlet-mapping>
+  <servlet>
+  	<servlet-name>ProjectMemberControlInsert</servlet-name>
+  	<servlet-class>controller.mem.memberController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ProjectMemberControlInsert</servlet-name>
+  	<url-pattern>/Insert.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ProjectMemberControlInfo</servlet-name>
+  	<servlet-class>controller.mem.memberController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ProjectMemberControlInfo</servlet-name>
+  	<url-pattern>/Info.do</url-pattern>
+  </servlet-mapping>
+  
+	<!-- 예외 클래스로 java.lang 과 같은 패키지도 다 들어가야 함!! -->
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/Error/ErrorPage.jsp</location>
+	</error-page>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

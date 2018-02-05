@@ -1,0 +1,77 @@
+/* 가로폭만 설정, 세로폭 설정 안함, 모든 여백은 0인 상태에서 시작*/
+*{/* html문서 전체 여백 - 0, 내부여백 - 0, 글꼴 - 버다나 */
+    margin:0;
+    padding:0;
+    font-family:Verdana;
+}
+div.allWrap{
+	width:80%;
+	margin:0 auto;
+	text-align:center;
+}
+div.partWrap{
+	border:2px green solid;
+	width:100%;
+	text-align:left;
+}
+.header div.logo{
+	width:15%;
+	float:left;
+	height:60px;
+}
+.header div.logo img{
+	width:100%;
+	height:120%;
+}
+.header div.topMenu{
+	height:60px;
+	line-height:60px;
+	text-align:right;
+}
+.header div.topMenu li{
+	display:inline;
+	border-right: 1px darkgray solid;
+	padding-right: 5px;
+}
+.header div.topMenu li:last-child {
+	padding-right:10px;
+	border:none;
+}
+.body{
+	clear:both;
+}
+.body div.category{
+	width:15%;
+	float:left;
+}
+.body div.category ul{
+	list-style-type: none;
+	margin:10px 0 0 10px;/* 상 우 하 좌 */
+}
+.body div.category li{
+	margin-bottom: 10px;
+}
+.body div.bodyPart{
+	float:left;
+	width:85%;
+}
+.body .bodyPart .bodyContent{
+	padding: 10px 0 0 10px;
+}
+.footer{
+	clear:both;
+	height:60px;
+	line-height: 60px;
+}
+.footer address{
+	text-align:center;
+	font-style: normal;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+a:hover {
+	text-decoration: underline;
+	color: green;
+}

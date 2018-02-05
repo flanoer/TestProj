@@ -1,0 +1,84 @@
+﻿/* 가로폭만 설정, 세로폭 설정 안함, 모든 여백은 0인 상태에서 시작*/
+*{/* html문서 전체 여백 - 0, 내부여백 - 0, 글꼴 - 버다나 */
+    margin:0;
+    padding:0;
+    font-family:Verdana;
+}
+div.allWrap{
+    width:80%;
+    margin:0 auto;
+    /*
+        위의 div 내의 margin 속성이 적용되지 않는 브라우저가 있으므로
+        아래의 text-align으로 한번 더 가운데 정렬한다.
+        다만 문제점은 모든 div를 감싸는 태그이므로 text-align으로 인해
+        모든 text가 가운데 정렬이 되버린다.
+    */
+    text-align:center;
+}
+div.partWrap{
+    /* 기본 정렬인 왼쪽 정렬 */
+    text-align:left;
+    /* 부모 영역을 꽉 채운다. */
+    width:100%;
+}
+.header div.logo{
+    width:15%;
+    float:left;
+    height:60px;
+}
+.header div.logo img{
+    width:100%;
+    height:100%;
+}
+.header div.topMenu{
+    height:60px;
+    line-height:60px;
+    text-align:right;
+}
+.header div.topMenu li{
+    display:inline;
+    border-right:1px crimson solid;
+    padding-right:5px;
+}
+.header div.topMenu li:last-child{
+    border:none;
+    padding-right:10px;
+}
+.body{
+    clear:both;
+}
+.body div.category{
+    width:15%;
+    float:left;
+}
+.body div.category ul{
+    list-style-type:none;
+    margin:10px 0 0 10px
+}
+.body div.category li{
+    margin-bottom:8px;
+}
+.body div.bodyPart{
+    float:left;
+    width:85%;
+}
+.body .bodyPart .bodyContent{
+    padding:10px 0 0 10px;
+}
+.footer{
+    clear:both;
+    height:60px;
+    line-height:60px;
+}
+.footer address{
+    text-align:center;
+    font-style:normal;
+}
+a{
+	text-decoration: none;
+	color:black;
+}
+a:hover {
+	text-decoration: underline;
+	color:green;
+}
