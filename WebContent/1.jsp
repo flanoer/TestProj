@@ -8,6 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>텍스트 추가</h2>
+	
 </body>
 </html>
