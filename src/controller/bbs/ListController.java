@@ -52,10 +52,10 @@ public class ListController extends HttpServlet{
 				int totalRecordCount = dao.getTotalRecordCount(map);//지금은 하는 일이 없으므로 null 넘겨줘도 된다.[검색 관련 메소드 추가 전]
 						
 				//pageSize
-				int pageSize = Integer.valueOf(context.getInitParameter("PAGESIZE"));
+				int pageSize = Integer.valueOf(getInitParameter("PAGESIZE"));
 						
 				//blockPage
-				int blockPage = Integer.valueOf(context.getInitParameter("BLOCKPAGE"));;
+				int blockPage = Integer.valueOf(getInitParameter("BLOCKPAGE"));;
 				
 				//totalPage count
 				int totalPage = (int)Math.ceil((double)totalRecordCount/pageSize);
@@ -78,6 +78,7 @@ public class ListController extends HttpServlet{
 				
 	//			4]결과값이 있으면 리퀘스트 영역에 저장
 				request.setAttribute("list", list);//글 목록들
+				request.setAttribute("active", "myboard");//메뉴 활성화
 	//			- 페이징용 문자열 생성
 				String pagingStr = 
 						PagingUtil.pagingBootStrapStyle

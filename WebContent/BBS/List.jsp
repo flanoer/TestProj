@@ -109,7 +109,7 @@
         <%-- main page end --%>
       </div>
       <div class="row">
-      <%--	${pagingStr } --%>
+      	${pagingStr }
       </div>
    		<hr/>
 		<jsp:include page="/Template/Footer.jsp"/>

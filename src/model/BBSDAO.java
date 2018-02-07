@@ -134,7 +134,7 @@ public class BBSDAO {
 	public int getTotalRecordCount(Map<String, Object> map) {
 		int totalCount = 0;
 		try {
-			String sql = "SELECT COUNT(*) FROM projbbs B JOIN MEMBER M ON B.ID = M.ID ";
+			String sql = "SELECT COUNT(*) FROM projbbs B JOIN projmem M ON B.ID = M.ID ";
 			if(map.get("searchColumn") != null) {
 				sql += "WHERE "+map.get("searchColumn")+" LIKE '%"+map.get("searchWord")+"%'";
 			}
